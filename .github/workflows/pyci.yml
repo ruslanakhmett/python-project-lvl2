@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         # we want to test our package on several versions of Python
-        python-version: [3.8, 3.9, '3.10']
+        python-version: [3.9]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -28,7 +28,7 @@ jobs:
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.4
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.REPORTER_ID }}
+          CC_TEST_REPORTER_ID: 4fb510ca1f0000ff0adad9b93355edc660e63979a8ce91647dd92c17b1fbf60c
         with:
           coverageCommand: make test-coverage
           debug: true
